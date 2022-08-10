@@ -6,7 +6,6 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Link, useHref } from "react-router-dom";
 
 const pages = [
   { title: "Home", href: "/" },
@@ -23,7 +22,7 @@ export const Header = ({ handleOpen, cartItems }) => {
             sx={{ justifyContent: { xs: "space-between" } }}
           >
             <Box>
-              <img src="/static/images/logo.png" alt="logo" />
+              <img src="/static/images/logo.png" alt="logo" className="img" />
             </Box>
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -73,7 +72,7 @@ export const Header = ({ handleOpen, cartItems }) => {
                 <img
                   src="/static/images/cart.svg"
                   alt="logo"
-                  className="logo"
+                  className="logo img"
                 />
                 <Typography>{cartItems.length} items</Typography>
               </Box>

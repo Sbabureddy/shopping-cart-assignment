@@ -5,16 +5,16 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  Paper,
   Typography,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import Carousel from "react-material-ui-carousel";
-import { getBanners, getCategories } from "../service/categories";
+import Banner from "../components/Carousel";
+
+import { getCategories } from "../service/categories";
 
 const Home = () => {
   const [data, setData] = useState(null);
-  const [carouselData, setCarouselData] = useState(null);
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -25,13 +25,10 @@ const Home = () => {
         setData(res);
         setIsLoading(false);
       })
-      .catch((eror) => {
+      .catch((error) => {
         console.log(error);
         setError(error);
       });
-    getBanners()
-      .then((res) => setCarouselData(res))
-      .catch((erro) => console.error(error));
   }, []);
 
   const renderCategroies = data?.map((category, ind) => {
@@ -79,6 +76,8 @@ const Home = () => {
               image={category.imageUrl}
               alt={category.name}
               sx={{ height: "50%", width: "50%" }}
+              width="50%"
+              height="50%"
             />
           </Card>
         </Grid>
@@ -87,13 +86,7 @@ const Home = () => {
   });
   return (
     <>
-      <Carousel>
-        {carouselData?.map((item) => (
-          <Paper key={item.id} sx={{ height: 304 }}>
-            <img src={item.bannerImageUrl} alt={item.bannerImageUrlAlt} />
-          </Paper>
-        ))}
-      </Carousel>
+      <Banner />
       {isLoading && <p>Fetching Categories...</p>}
       {error && <p>{error}</p>}
       <Grid container spaceing={3}>

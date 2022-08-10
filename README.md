@@ -13,3 +13,15 @@ npm run start
 yarn install
 yarn start
 ```
+
+run following command for starting the frontend:
+
+```
+cd client
+npm install
+npm run start
+# or
+cd client
+yarn install
+yarn start
+```
