@@ -63,4 +63,4 @@ typings/
 
 **/.gitignore
 **/package-lock.json
-client/public/static/**
+
