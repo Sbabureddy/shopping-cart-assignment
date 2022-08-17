@@ -30,10 +30,12 @@ const Home = () => {
         console.log(error);
         setError(error);
       });
+    return () => getCategories();
   }, []);
 
-  const renderCategroies = data?.map((category, ind) => {
-    if (category.imageUrl) {
+  const renderCategroies = data
+    ?.filter((item) => item.imageUrl)
+    .map((category, ind) => {
       return (
         <Grid item xs={12} key={category.id}>
           <Card
@@ -42,8 +44,9 @@ const Home = () => {
               justifyContent: "center",
               alignItems: "center",
             }}
-            className={ind % 2 === 0 ? "categories" : null}
-            style={{ flexDirection: ind === 5 ? "row-reverse" : null }}
+            style={{
+              flexDirection: (ind + 1) % 2 === 0 ? "row-reverse" : "row",
+            }}
           >
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <CardContent sx={{ flex: "1 0 auto" }}>
@@ -83,8 +86,7 @@ const Home = () => {
           </Card>
         </Grid>
       );
-    }
-  });
+    });
   return (
     <>
       <Suspense fallback={<h2>Fetching Banners...</h2>}>
