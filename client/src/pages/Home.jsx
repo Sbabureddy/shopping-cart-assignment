@@ -7,10 +7,11 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Banner from "../components/Carousel";
 
 import { getCategories } from "../service/categories";
+import { resource } from "../utils";
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -86,7 +87,9 @@ const Home = () => {
   });
   return (
     <>
-      <Banner />
+      <Suspense fallback={<h2>Fetching Banners...</h2>}>
+        <Banner resource={resource} />
+      </Suspense>
       {isLoading && <p>Fetching Categories...</p>}
       {error && <p>{error}</p>}
       <Grid container spaceing={3}>

@@ -45,7 +45,7 @@ export const Layout = ({
         setData(res);
         setIsLoading(false);
       })
-      .catch((eror) => {
+      .catch((error) => {
         console.log(error);
         setError(error);
       });

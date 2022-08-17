@@ -1,13 +1,12 @@
 import { Layout } from "../layout/category/Layout";
 
-export const Categories = ({
+const Categories = ({
   handleBuy,
   handleDec,
   total,
   cartItems,
   open,
   handleClose,
-  handleOpen,
 }) => {
   return (
     <>
@@ -22,3 +21,5 @@ export const Categories = ({
     </>
   );
 };
+
+export default Categories;

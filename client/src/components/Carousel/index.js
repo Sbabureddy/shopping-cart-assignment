@@ -1,24 +1,14 @@
+import React from "react";
 import { Paper } from "@mui/material";
-import React, { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
-import { getBanners } from "../../service/categories";
 
-const Banner = () => {
-  const [carouselData, setCarouselData] = useState(null);
-  useEffect(() => {
-    getBanners()
-      .then((res) => setCarouselData(res))
-      .catch((error) => console.error(error));
-  });
+const Banner = ({ resource }) => {
+  const carouselData = resource.banners.read();
   return (
     <Carousel>
-      {carouselData?.map((item) => (
-        <Paper key={item.id} sx={{ height: 304 }}>
-          <img
-            src={item.bannerImageUrl}
-            alt={item.bannerImageAlt}
-            className="img"
-          />
+      {carouselData?.map(({ id, bannerImageAlt, bannerImageUrl }) => (
+        <Paper key={id} sx={{ height: 304 }}>
+          <img src={bannerImageUrl} alt={bannerImageAlt} className="img" />
         </Paper>
       ))}
     </Carousel>
