@@ -1,5 +1,8 @@
-import { Button, Grid, TextField, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import React from "react";
 
 const Login = () => {

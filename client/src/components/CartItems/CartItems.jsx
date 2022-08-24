@@ -1,5 +1,9 @@
-import { Button, Card, CardHeader, CardMedia, Grid } from "@mui/material";
-import { Box } from "@mui/system";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 const CartItems = ({ cartItems, handleDec, handleInc }) => {
   return (
@@ -13,6 +17,9 @@ const CartItems = ({ cartItems, handleDec, handleInc }) => {
                 image={cart.imageURL}
                 alt={cart.name}
                 sx={{ width: "15%" }}
+                width="100%"
+                height="100%"
+                loading="lazy"
               />
               <Box>
                 <CardHeader title={cart.name} className="cart-header" />

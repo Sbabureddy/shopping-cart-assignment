@@ -1,17 +1,15 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import React, { useState, useEffect, Suspense } from "react";
-import Banner from "../components/Carousel";
+import Banner from "components/Carousel";
 
-import { getCategories } from "../service/categories";
-import { resource } from "../utils";
+import { getCategories } from "service/categories";
+import { resource } from "utils";
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -82,6 +80,7 @@ const Home = () => {
               sx={{ height: "50%", width: "50%" }}
               width="50%"
               height="50%"
+              loading="lazy"
             />
           </Card>
         </Grid>

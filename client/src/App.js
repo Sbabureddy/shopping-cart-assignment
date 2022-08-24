@@ -5,7 +5,7 @@ import { Header } from "components/Header/Header";
 import Home from "pages/Home";
 import Login from "pages/Login";
 import PageNotFound from "pages/PageNotFound";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 import Register from "./pages/Register";
 import { total } from "./utils";
 

@@ -1,24 +1,24 @@
-import {
-  AppBar,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Dialog,
-  Grid,
-  IconButton,
-  Slide,
-  Toolbar,
-  Typography,
-} from "@mui/material";
 import React, { useState, useEffect, forwardRef } from "react";
-import { getProducts } from "../../service/categories";
-import "./categories.css";
+
 import CloseIcon from "@mui/icons-material/Close";
-import { Box } from "@mui/system";
-import CartItems from "../../components/CartItems/CartItems";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import AppBar from "@mui/material/AppBar";
+import Dialog from "@mui/material/Dialog";
+import IconButton from "@mui/material/IconButton";
+import Slide from "@mui/material/Slide";
+import Toolbar from "@mui/material/Toolbar";
+
+import { getProducts } from "service/categories";
+import "./categories.css";
+import CartItems from "components/CartItems/CartItems";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const Transition = forwardRef(function Transition(props, ref) {
@@ -63,6 +63,9 @@ export const Layout = ({
             height: { xs: "unset", sm: "226px", md: "226px" },
             width: { xs: "50%", sm: "50%", md: "100%" },
           }}
+          width="100%"
+          height="100%"
+          loading="lazy"
         />
 
         <CardContent>
