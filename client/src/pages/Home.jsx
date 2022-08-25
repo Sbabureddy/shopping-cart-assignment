@@ -10,6 +10,7 @@ import Banner from "components/Carousel";
 
 import { getCategories } from "service/categories";
 import { resource } from "utils";
+import ErrorBoundary from "components/ErrorBoundaries";
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -88,9 +89,11 @@ const Home = () => {
     });
   return (
     <>
-      <Suspense fallback={<h2>Fetching Banners...</h2>}>
-        <Banner resource={resource} />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<h2>Fetching Banners...</h2>}>
+          <Banner resource={resource} />
+        </Suspense>
+      </ErrorBoundary>
       {isLoading && <p>Fetching Categories...</p>}
       {error && <p>{error}</p>}
       <Grid container spaceing={3}>

@@ -6,8 +6,9 @@ import Home from "pages/Home";
 import Login from "pages/Login";
 import PageNotFound from "pages/PageNotFound";
 import Container from "@mui/material/Container";
-import Register from "./pages/Register";
-import { total } from "./utils";
+import Register from "pages/Register";
+import { total } from "utils";
+import ErrorBoundary from "components/ErrorBoundaries";
 
 const Categories = lazy(() => import("./pages/Categories"));
 
@@ -46,27 +47,29 @@ function App() {
     <Container fixed>
       <Header handleOpen={handleOpen} cartItems={cartItems} />
       <BrowserRouter>
-        <Suspense fallback={<h2>Fetching Categories ...</h2>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="categories"
-              element={
-                <Categories
-                  handleBuy={handleBuy}
-                  total={total}
-                  handleDec={handleDec}
-                  cartItems={cartItems}
-                  open={open}
-                  handleClose={handleClose}
-                />
-              }
-            />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<h2>Fetching Categories ...</h2>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="categories"
+                element={
+                  <Categories
+                    handleBuy={handleBuy}
+                    total={total}
+                    handleDec={handleDec}
+                    cartItems={cartItems}
+                    open={open}
+                    handleClose={handleClose}
+                  />
+                }
+              />
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </BrowserRouter>
       <Footer />
     </Container>

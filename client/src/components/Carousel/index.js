@@ -19,6 +19,7 @@ const Banner = ({ resource }) => {
             alt={bannerImageAlt}
             className="img"
             fetchpriority={ind === 0 ? "high" : "low"}
+            loading="lazy"
           />
         </Paper>
       ))}
